@@ -19,7 +19,7 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "uw",
       "styles": [
-        "styles.styl"
+        "styles.scss"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",
@@ -54,7 +54,8 @@
     }
   },
   "defaults": {
-    "styleExt": "styl",
-    "component": {}
+    "styleExt": "scss",
+    "component": {
+    }
   }
 }

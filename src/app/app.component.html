@@ -1,21 +1,30 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div id="app">
+  <div id="app-splash"
+       *ngIf="isSplashDisplayed()"
+       @splash>
+    <div id="app-splash-logo"
+         class="white-theme"
+         fxLayout="column"
+         fxLayoutAlign="center center">
+      <img src="assets/logo-white.png"
+           srcset="assets/logo-white@2x.png 2x, assets/logo-white@3x.png 3x"
+           @logo>
+      <span id="app-splash-logo-baseline"
+            @baseline>Manage your life</span>
+      <mat-spinner diameter="30"
+                   strokeWidth="2"
+                   @spinner
+                   (@spinner.done)="spinnerIsReady()"></mat-spinner>
+    </div>
+    <div id="app-splash-background1"
+         class="app-splash-background"
+         @bg1></div>
+    <div id="app-splash-background2"
+         class="app-splash-background"
+         @bg2></div>
+    <div id="app-splash-background3"
+         class="app-splash-background"
+         @bg3></div>
+  </div>
+  <router-outlet id="app-content"></router-outlet>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
-
-<router-outlet></router-outlet>

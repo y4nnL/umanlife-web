@@ -1,0 +1,65 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Global
+
+html,
+body {
+  height : 100%;
+}
+
+body {
+  overflow: hidden;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Fonts
+
+@font-face {
+  font-family: 'Gotham Light';
+  src: url(assets/Gotham-XLight.otf) format('opentype');
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Angular Material Themes
+
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$white-palette: mat-palette((
+  50: #fff,
+  100: #fff,
+  200: #fff,
+  300: #fff,
+  400: #fff,
+  500: #fff,
+  600: #fff,
+  700: #fff,
+  800: #fff,
+  900: #fff,
+  A100: #fff,
+  A200: #fff,
+  A400: #fff,
+  A700: #fff,
+  contrast: (
+    50: #000,
+    100: #000,
+    200: #000,
+    300: #000,
+    400: #000,
+    500: #fff,
+    600: #fff,
+    700: #fff,
+    800: #fff,
+    900: #fff,
+    A100: #000,
+    A200: #000,
+    A400: #000,
+    A700: #fff,
+  )
+));
+$white-theme: mat-light-theme($white-palette, $white-palette, $white-palette);
+
+.white-theme {
+  @include angular-material-theme($white-theme);
+}
