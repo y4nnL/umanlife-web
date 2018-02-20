@@ -27,24 +27,10 @@ export const bg3Animation = trigger('bg3', [
   ])
 ]);
 
-export const logoAnimation = trigger('logo', [
-  transition('* => *', [
-    style({ opacity: 0 }),
-    animate('1s 1000ms ease-out')
-  ])
-]);
-
-export const baselineAnimation = trigger('baseline', [
-  transition('* => *', [
-    style({ opacity: 0 }),
-    animate('1s 1100ms ease-out')
-  ])
-]);
-
 export const spinnerAnimation = trigger('spinner', [
   transition('* => *', [
     style({ opacity: 0 }),
-    animate('1s 2000ms ease-out')
+    animate('1s 1200ms ease-out')
   ])
 ]);
 
@@ -53,7 +39,5 @@ export const animations = [
   bg1Animation,
   bg2Animation,
   bg3Animation,
-  logoAnimation,
-  baselineAnimation,
   spinnerAnimation
 ];
