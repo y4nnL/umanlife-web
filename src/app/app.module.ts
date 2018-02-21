@@ -4,25 +4,34 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-import { AppRoutingModule } from './app-routing.module';
-
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSliderModule } from '@angular/material/slider';
+import { MatButtonModule } from '@angular/material//';
+
+import { TranslateModule } from '@ngx-translate/core';
 
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+
+import { WelcomeComponent } from './welcome/welcome.component';
+import { ButtonComponent } from './button/button.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    WelcomeComponent,
+    ButtonComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
-    AppRoutingModule,
+    FormsModule,
+    TranslateModule.forRoot(),
     MatProgressSpinnerModule,
     MatSliderModule,
-    FormsModule
+    MatButtonModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [

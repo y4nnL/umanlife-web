@@ -1,0 +1,9 @@
+<button class="button"
+        [ngClass]="{ inline: inline }"
+        [disabled]="disabled">
+  <span fxLayout="row"
+        fxLayoutAlign="center center"
+        fxFill>
+    <ng-content></ng-content>
+  </span>
+</button>
