@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 
 import { animations } from './app-animations';
@@ -8,7 +8,11 @@ import * as localeEN from './app-locale-en.json';
 import * as localeFR from './app-locale-fr.json';
 
 import 'rxjs/add/operator/filter';
-import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/mergeMap';
+
+import * as FastClick from 'fastclick';
+FastClick.attach(document.body);
 
 const SPINNER_MIN_TIME: Number = 1200;
 
@@ -30,9 +34,25 @@ export class AppComponent implements OnInit {
   private _isNavigating: Boolean = true;
   private _spinnerIsReady: Boolean = false;
 
-  constructor(private router: Router, private translate: TranslateService) { }
+  constructor(
+    private router: Router,
+    private translate: TranslateService,
+  ) { }
 
   ngOnInit() {
+    this._initTranslate();
+    this._initNavigationRx();
+  }
+
+  spinnerIsReady() {
+    setTimeout(() => this._spinnerIsReady = true, SPINNER_MIN_TIME);
+  }
+
+  isSplashDisplayed(): Boolean {
+    return this._spinnerIsReady === false || this._isNavigating === true;
+  }
+
+  private _initTranslate() {
     const localesArray = Object.keys(LOCALES);
     const browserLocale = this.translate.getBrowserLang();
     const localesRegEx = new RegExp(localesArray.join('|'));
@@ -46,17 +66,11 @@ export class AppComponent implements OnInit {
     });
 
     this.translate.use(usedLocale);
+  }
 
+  private _initNavigationRx() {
     this.router.events
       .filter(event => event instanceof NavigationEnd)
       .subscribe(() => this._isNavigating = false);
-  }
-
-  spinnerIsReady() {
-    setTimeout(() => this._spinnerIsReady = true, SPINNER_MIN_TIME);
-  }
-
-  isSplashDisplayed(): Boolean {
-    return this._spinnerIsReady === false || this._isNavigating === true;
   }
 }

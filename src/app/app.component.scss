@@ -1,73 +1,95 @@
-#app,
-#app-splash,
-#app-splash-logo,
-#app-content {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
+$appContentZIndex: 1;
+$appHeaderZIndex: 2;
+$appSplashZIndex: 3;
+$appSplashBG3ZIndex: 1;
+$appSplashBG2ZIndex: 2;
+$appSplashBG1ZIndex: 3;
+$appSplashLogoZIndex: 4;
 
-#app-splash {
-  z-index: 2;
-  background: #fff;
-}
+:host .app {
 
-#app-splash-logo {
-  z-index: 4;
-  color: #FFF;
-}
+  &,
+  .app-splash,
+  .app-splash-logo,
+  .app-header,
+  .app-content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
 
-#app-splash-logo-baseline {
-  font-family: "Gotham Light", sans-serif;
-  font-size: 30px;
-  padding: 30px 0 70px 0;
-}
+  .app-splash {
 
-.app-splash-background {
-  position: absolute;
-}
+    z-index: $appSplashZIndex;
+    background: #fff;
 
-#app-splash-background1 {
-  z-index: 3;
-  top: -12%;
-  left: -9%;
-  width: 92%;
-  height: 174%;
-  transform: rotate(-21deg);
-  border-radius: 57% 43% 64% 0;
-  opacity: 0.31;
-  background-image: linear-gradient(236deg, rgba(255, 139, 149, 0.94), #ef7aa1 24%, #ee67d1);
-  background-blend-mode: color-burn;
-}
+    .app-splash-logo {
 
-#app-splash-background2 {
-  z-index: 2;
-  top: -23%;
-  left: -9%;
-  width: 95%;
-  height: 200%;
-  transform: rotate(-21deg);
-  border-radius: 0 48% 57% 0;
-  opacity: 0.24;
-  background-image: linear-gradient(241deg, #ef2d60, #c185f4);
-  background-blend-mode: hard-light;
-}
+      z-index: $appSplashLogoZIndex;
+      color: #FFF;
 
-#app-splash-background3 {
-  z-index: 3;
-  top: -14%;
-  left: -3%;
-  width: 98%;
-  height: 160%;
-  transform: rotate(-8deg);
-  border-radius: 0 34% 81% 0;
-  opacity: 0.46;
-  background-image: linear-gradient(248deg, rgba(240, 255, 139, 0.94), #ef7aa1 76%, #ee67d1);
-  background-blend-mode: multiply;
-}
+      .app-splash-logo-baseline {
+        font-family: "Gotham Light", sans-serif;
+        font-size: 30px;
+        padding: 30px 0 70px 0;
+      }
 
-#app-content {
-  z-index: 1;
+    }
+
+    .app-splash-background {
+      position: absolute;
+    }
+
+    .app-splash-background1 {
+      z-index: $appSplashBG1ZIndex;
+      top: -12%;
+      left: -9%;
+      width: 92%;
+      height: 174%;
+      transform: rotate(-21deg);
+      border-radius: 57% 43% 64% 0;
+      opacity: 0.31;
+      background-image: linear-gradient(236deg, rgba(255, 139, 149, 0.94), #ef7aa1 24%, #ee67d1);
+      background-blend-mode: color-burn;
+    }
+
+    .app-splash-background2 {
+      z-index: $appSplashBG2ZIndex;
+      top: -23%;
+      left: -9%;
+      width: 95%;
+      height: 200%;
+      transform: rotate(-21deg);
+      border-radius: 0 48% 57% 0;
+      opacity: 0.24;
+      background-image: linear-gradient(241deg, #ef2d60, #c185f4);
+      background-blend-mode: hard-light;
+    }
+
+    .app-splash-background3 {
+      z-index: $appSplashBG3ZIndex;
+      top: -14%;
+      left: -3%;
+      width: 98%;
+      height: 160%;
+      transform: rotate(-8deg);
+      border-radius: 0 34% 81% 0;
+      opacity: 0.46;
+      background-image: linear-gradient(248deg, rgba(240, 255, 139, 0.94), #ef7aa1 76%, #ee67d1);
+      background-blend-mode: multiply;
+    }
+
+  }
+
+  .app-header {
+    bottom: auto;
+    z-index: $appHeaderZIndex;
+  }
+
+  .app-content {
+    z-index: $appContentZIndex;
+  }
+
 }

@@ -15,12 +15,16 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { WelcomeComponent } from './welcome/welcome.component';
 import { ButtonComponent } from './button/button.component';
+import { SignupComponent } from './signup/signup.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
-    ButtonComponent
+    ButtonComponent,
+    SignupComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

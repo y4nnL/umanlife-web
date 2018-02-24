@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { HeaderData } from '../header/header.component';
+
+export const welcomeHeaderData: HeaderData = {
+  header: {
+    display: false
+  }
+};
 
 @Component({
   selector: 'uw-welcome',

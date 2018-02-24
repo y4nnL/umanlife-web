@@ -1,0 +1,15 @@
+:host .header {
+
+  position: relative;
+  height: 64px;
+  border-bottom: 1px solid rgba(151, 157, 164, 0.16);
+  background: #FFF;
+
+  .header-logo {
+    width: 100px;
+    height: 30px;
+    background: red;
+    cursor: pointer;
+  }
+
+}
