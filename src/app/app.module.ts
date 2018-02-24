@@ -6,7 +6,8 @@ import { FormsModule } from '@angular/forms';
 
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSliderModule } from '@angular/material/slider';
-import { MatButtonModule } from '@angular/material//';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -35,6 +36,7 @@ import { HeaderComponent } from './header/header.component';
     MatProgressSpinnerModule,
     MatSliderModule,
     MatButtonModule,
+    MatIconModule,
     AppRoutingModule
   ],
   providers: [],

@@ -1,8 +1,16 @@
 <div class="header"
-     *ngIf="displayed"
      fxLayout="row"
      fxLayoutAlign="space-between"
-     @collapsed>
+     *ngIf="displayed"
+     @displayed>
   <div class="header-logo"
        routerLink="/">TODO logo</div>
+  <uw-button class="header-back"
+             inline="inline"
+             [disabled]="!canGoBack()"
+             (click)="goBack()"
+             *ngIf="canGoBack()"
+             @back>
+    <mat-icon fontSet="material-icons">keyboard_backspace</mat-icon>
+  </uw-button>
 </div>

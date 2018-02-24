@@ -52,10 +52,14 @@ export class HeaderComponent implements OnInit {
       });
   }
 
+  canGoBack(): Boolean {
+    return typeof this.back === 'string' || this.back === true;
+  }
+
   goBack() {
-    if (<String>this.back) {
+    if (typeof this.back === 'string') {
       this._router.navigate([ this.back ]);
-    } else if (<Boolean>this.back) {
+    } else if (this.back === true) {
       this._location.back();
     }
   }

@@ -71,8 +71,9 @@ $buttonColor: #1abc9c;
 
     &[disabled] {
       cursor: default;
-      color: #1abc9c;
+      color: grayscale($buttonColor);
       transform: none;
+      background-color: rgba(#EEE, 0);
     }
 
   }

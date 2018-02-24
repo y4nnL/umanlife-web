@@ -4,8 +4,22 @@ import { WelcomeComponent, welcomeHeaderData } from './welcome/welcome.component
 import { SignupComponent, signupHeaderData } from './signup/signup.component';
 
 const routes: Routes = [
-  { path: '', component: WelcomeComponent, data: { ...welcomeHeaderData } },
-  { path: 'signup', component: SignupComponent, data: { ...signupHeaderData } }
+  {
+    path: '',
+    children: [
+      {
+        path: '',
+        component: WelcomeComponent,
+        data: { ...welcomeHeaderData },
+      },
+      {
+        path: 'signup',
+        component: SignupComponent,
+        data: { ...signupHeaderData }
+      }
+    ]
+  },
+
 ];
 
 @NgModule({
