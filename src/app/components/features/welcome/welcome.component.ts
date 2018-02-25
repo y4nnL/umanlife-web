@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HeaderData } from '../header/header.component';
+import { HeaderData } from '../../shared/header/header.component';
 
 export const welcomeHeaderData: HeaderData = {
   header: {

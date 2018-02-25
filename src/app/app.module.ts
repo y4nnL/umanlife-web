@@ -16,11 +16,11 @@ import { TranslateModule } from '@ngx-translate/core';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
-import { WelcomeComponent } from './welcome/welcome.component';
-import { ButtonComponent } from './button/button.component';
-import { SignupComponent } from './signup/signup.component';
-import { HeaderComponent } from './header/header.component';
-import { ContainerSimpleComponent } from './container/container-simple/container-simple.component';
+import { WelcomeComponent } from './components/features/welcome/welcome.component';
+import { ButtonComponent } from './components/shared/button/button.component';
+import { SignupComponent } from './components/features/signup/signup.component';
+import { HeaderComponent } from './components/shared/header/header.component';
+import { ContainerSimpleComponent } from './components/shared/container/container-simple/container-simple.component';
 
 @NgModule({
   declarations: [

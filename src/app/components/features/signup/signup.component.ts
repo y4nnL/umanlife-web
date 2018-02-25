@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 
-import { MaterialDirtyStateMatcher } from '../helpers/MaterialDirtyStateMatcher';
-import { HeaderData } from '../header/header.component';
+import { MaterialDirtyStateMatcher } from '../../../helpers/MaterialDirtyStateMatcher';
+import { HeaderData } from '../../shared/header/header.component';
 
 export const signupHeaderData: HeaderData = {
   header: {
