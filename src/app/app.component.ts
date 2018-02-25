@@ -8,8 +8,6 @@ import * as localeEN from './app-locale-en.json';
 import * as localeFR from './app-locale-fr.json';
 
 import 'rxjs/add/operator/filter';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/mergeMap';
 
 import * as FastClick from 'fastclick';
 FastClick.attach(document.body);
@@ -31,8 +29,8 @@ const LOCALES = {
 })
 export class AppComponent implements OnInit {
 
-  private _isNavigating: Boolean = true;
-  private _spinnerIsReady: Boolean = false;
+  private _isNavigating = true;
+  private _spinnerIsReady = false;
 
   constructor(
     private router: Router,
@@ -48,7 +46,7 @@ export class AppComponent implements OnInit {
     setTimeout(() => this._spinnerIsReady = true, SPINNER_MIN_TIME);
   }
 
-  isSplashDisplayed(): Boolean {
+  isSplashDisplayed(): boolean {
     return this._spinnerIsReady === false || this._isNavigating === true;
   }
 

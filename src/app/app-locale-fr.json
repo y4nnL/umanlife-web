@@ -2,5 +2,17 @@
 	"COMMON_BASELINE": "Prenez votre vie en main",
 	"COMMON_SIGNIN": "Connexion",
 	"COMMON_SIGNUP": "Inscription",
+	"COMMON_TOS": "Conditions du service",
+  "FORM_EMAIL": "Email",
+  "FORM_EMAIL_ERROR_EMAIL": "Cet email n'est pas <strong>valide</strong>",
+  "FORM_EMAIL_ERROR_REQUIRED": "L'email est <strong>obligatoire</strong>",
+  "FORM_PASSWORD": "Mot de passe",
+  "FORM_PASSWORD_ERROR_MINLENGTH": "Le mot de passe doit faire au moins <strong>huit caractères</strong>",
+  "FORM_PASSWORD_ERROR_PATTERN": "Le mot de passe doit contenir au moins huit caractères dont une lettre, un chiffre et un caractère spécial",
+  "FORM_PASSWORD_ERROR_REQUIRED": "Le mot de passe est <strong>obligatoire</strong>",
+  "FORM_PASSWORDMATCH": "Confirmez le mot de passe",
+  "FORM_PASSWORDMATCH_ERROR_MISMATCH": "Le mot de passe n'est pas <strong>confirmé</strong>",
+  "FORM_USERNAME": "Nom d'utilisateur",
+  "FORM_USERNAME_ERROR_REQUIRED": "Le nom d'utilisateur est <strong>obligatoire</strong>",
 	"WELCOME_SIGNIN": "J'ai déjà un compte"
 }

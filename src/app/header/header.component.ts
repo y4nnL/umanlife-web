@@ -4,10 +4,14 @@ import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 
 import { animations } from './header-animations';
 
+import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/mergeMap';
+
 export interface HeaderData {
   header: {
-    display: Boolean;
-    back?: Boolean|String;
+    display: boolean;
+    back?: boolean|string;
   };
 }
 
@@ -21,8 +25,8 @@ export interface HeaderData {
 })
 export class HeaderComponent implements OnInit {
 
-  displayed: Boolean = false;
-  back: Boolean|String = false;
+  displayed = false;
+  back: boolean|string = false;
 
   constructor(
     private _location: Location,
@@ -48,11 +52,10 @@ export class HeaderComponent implements OnInit {
           this.displayed = headerData.header.display;
           this.back = headerData.header.back;
         }
-        console.log(headerData);
       });
   }
 
-  canGoBack(): Boolean {
+  canGoBack(): boolean {
     return typeof this.back === 'string' || this.back === true;
   }
 

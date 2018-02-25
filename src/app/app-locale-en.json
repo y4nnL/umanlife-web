@@ -2,5 +2,17 @@
 	"COMMON_BASELINE": "Manage your life",
 	"COMMON_SIGNIN": "Sign in",
 	"COMMON_SIGNUP": "Sign up",
+  "COMMON_TOS": "Terms of uses",
+  "FORM_EMAIL": "Email",
+  "FORM_EMAIL_ERROR_EMAIL": "This email is not <strong>valid</strong>",
+  "FORM_EMAIL_ERROR_REQUIRED": "The email is <strong>required</strong>",
+  "FORM_PASSWORD": "Password",
+  "FORM_PASSWORD_ERROR_MINLENGTH": "The password must have at least <strong>height characters</strong>",
+  "FORM_PASSWORD_ERROR_PATTERN": "The password must have at least <strong>one letter</strong>, <strong>one number</strong> and <strong>one special character</strong>",
+  "FORM_PASSWORD_ERROR_REQUIRED": "The password is <strong>required</strong>",
+  "FORM_PASSWORDMATCH": "Confirm password",
+  "FORM_PASSWORDMATCH_ERROR_MISMATCH": "You must <strong>confirm</strong> the password",
+  "FORM_USERNAME": "Username",
+  "FORM_USERNAME_ERROR_REQUIRED": "The username is <strong>required</strong>",
 	"WELCOME_SIGNIN": "I already have an account"
 }

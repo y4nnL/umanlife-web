@@ -1,11 +1,11 @@
-<div class="welcome"
-     fxLayout="column"
-     fxLayoutAlign="center center">
-  <img src="assets/logo.png"
-       srcset="assets/logo@2x.png 2x, assets/logo@3x.png 3x">
-  <span class="welcome-baseline">{{'COMMON_BASELINE'|translate}}</span>
-  <uw-button routerLink="/signup">{{'COMMON_SIGNUP'|translate}}</uw-button>
-  <span class="welcome-signin">{{'WELCOME_SIGNIN'|translate}}</span>
-  <uw-button inline="inline">{{'COMMON_SIGNIN'|translate}}</uw-button>
-  <router-outlet></router-outlet>
-</div>
+<uw-container-simple class="welcome">
+  <div fxLayout="column"
+       fxLayoutAlign="start center">
+    <img src="assets/logo.png"
+         srcset="assets/logo@2x.png 2x, assets/logo@3x.png 3x">
+    <span class="welcome-baseline">{{'COMMON_BASELINE'|translate}}</span>
+    <uw-button routerLink="/signup">{{'COMMON_SIGNUP'|translate}}</uw-button>
+    <span class="welcome-signin">{{'WELCOME_SIGNIN'|translate}}</span>
+    <uw-button inline="inline">{{'COMMON_SIGNIN'|translate}}</uw-button>
+  </div>
+</uw-container-simple>

@@ -13,6 +13,11 @@ body {
   font-weight: 300;
 }
 
+strong {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+}
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Fonts
 
@@ -26,6 +31,11 @@ body {
   src: url(assets/Gotham-Medium.otf) format('opentype');
 }
 
+@font-face {
+  font-family: 'Gotham Bold';
+  src: url(assets/Gotham-Bold.otf) format('opentype');
+}
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Angular Material Themes
 
@@ -34,7 +44,7 @@ body {
 
 @include mat-core();
 
-$white-palette: mat-palette((
+$whitePalette: mat-palette((
   50: #fff,
   100: #fff,
   200: #fff,
@@ -50,24 +60,78 @@ $white-palette: mat-palette((
   A400: #fff,
   A700: #fff,
   contrast: (
-    50: #000,
-    100: #000,
-    200: #000,
-    300: #000,
-    400: #000,
-    500: #fff,
-    600: #fff,
-    700: #fff,
-    800: #fff,
-    900: #fff,
-    A100: #000,
-    A200: #000,
-    A400: #000,
-    A700: #fff,
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $light-primary-text,
+    A400: $light-primary-text,
+    A700: $light-primary-text,
   )
 ));
-$white-theme: mat-light-theme($white-palette, $white-palette, $white-palette);
+$whiteTheme: mat-light-theme($whitePalette, $whitePalette, $whitePalette);
 
 .white-theme {
-  @include angular-material-theme($white-theme);
+  @include angular-material-theme($whiteTheme);
+}
+
+$greenColor: #1abc9c;
+$greenPalette: mat-palette((
+  50: $greenColor,
+  100: $greenColor,
+  200: $greenColor,
+  300: $greenColor,
+  400: $greenColor,
+  500: $greenColor,
+  600: $greenColor,
+  700: $greenColor,
+  800: $greenColor,
+  900: $greenColor,
+  A100: $greenColor,
+  A200: $greenColor,
+  A400: $greenColor,
+  A700: $greenColor,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $light-primary-text,
+    A400: $light-primary-text,
+    A700: $light-primary-text,
+  )
+));
+
+@include mat-form-field-theme(mat-light-theme($greenPalette, $greenPalette));
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Angular Material override
+
+.mat-form-field-label-wrapper,
+.mat-hint,
+.mat-error,
+.mat-input-element {
+  font-family: "Open Sans", sans-serif !important;
+}
+
+.mat-form-field {
+  margin-bottom: 10px;
+}
+
+.mat-error {
+  padding-bottom: 3px;
 }

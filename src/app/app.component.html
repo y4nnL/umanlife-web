@@ -2,17 +2,18 @@
   <div class="app-splash"
        *ngIf="isSplashDisplayed()"
        @splash>
-    <div class="app-splash-logo white-theme"
-         fxLayout="column"
-         fxLayoutAlign="center center">
-      <img src="assets/logo-white.png"
-           srcset="assets/logo-white@2x.png 2x, assets/logo-white@3x.png 3x">
-      <span class="app-splash-logo-baseline">{{'COMMON_BASELINE'|translate}}</span>
-      <mat-spinner diameter="30"
-                   strokeWidth="2"
-                   @spinner
-                   (@spinner.done)="spinnerIsReady()"></mat-spinner>
-    </div>
+    <uw-container-simple class="app-splash-logo white-theme">
+      <div fxLayout="column"
+           fxLayoutAlign="start center">
+        <img src="assets/logo-white.png"
+             srcset="assets/logo-white@2x.png 2x, assets/logo-white@3x.png 3x">
+        <span class="app-splash-logo-baseline">{{'COMMON_BASELINE'|translate}}</span>
+        <mat-spinner diameter="30"
+                     strokeWidth="2"
+                     @spinner
+                     (@spinner.done)="spinnerIsReady()"></mat-spinner>
+      </div>
+    </uw-container-simple>
     <div class="app-splash-background app-splash-background1"
          @bg1></div>
     <div class="app-splash-background app-splash-background2"

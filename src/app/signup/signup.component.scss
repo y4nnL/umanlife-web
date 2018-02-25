@@ -1,5 +1,22 @@
 :host .signup {
 
-  height: 100%;
+  width: 400px;
+  margin: 0 auto;
+
+  .signup-password {
+
+    position: relative;
+
+    .signup-password-toggle {
+      position: absolute;
+      top: -4px;
+      right: 0;
+    }
+
+  }
+
+  .signup-terms {
+    margin: 10px 0 40px 0;
+  }
 
 }

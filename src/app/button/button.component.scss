@@ -35,7 +35,7 @@ $buttonColor: #1abc9c;
 
     &[disabled] {
       cursor: default;
-      background: grayscale($buttonColor);
+      background: lighten(grayscale($buttonColor), 40%);
       transform: none;
     }
 
@@ -71,7 +71,7 @@ $buttonColor: #1abc9c;
 
     &[disabled] {
       cursor: default;
-      color: grayscale($buttonColor);
+      color: lighten(grayscale($buttonColor), 30%);
       transform: none;
       background-color: rgba(#EEE, 0);
     }

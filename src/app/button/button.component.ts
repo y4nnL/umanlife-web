@@ -7,8 +7,9 @@ import { Component, Input } from '@angular/core';
 })
 export class ButtonComponent {
 
-  @Input('disabled') disabled: Boolean = false;
-  @Input('inline') inline: Boolean = false;
+  @Input('type') type = 'button';
+  @Input('disabled') disabled = false;
+  @Input('inline') inline = false;
 
   constructor() { }
 

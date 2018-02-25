@@ -1,5 +1,70 @@
-<div class="signup"
-     fxLayout="column"
-     fxLayoutAlign="center center">
-  <span>yo</span>
-</div>
+<uw-container-simple [title]="'COMMON_SIGNUP'|translate">
+  <div class="signup">
+    <form [formGroup]="signUpFormGroup"
+          fxLayout="column">
+      <mat-form-field class="">
+        <input [placeholder]="'FORM_USERNAME'|translate"
+               [formControl]="usernameFormControl"
+               [errorStateMatcher]="matcher"
+               formControlName="username"
+               matInput>
+        <mat-error *ngIf="usernameFormControl.hasError('required')"
+                   [innerHTML]="'FORM_USERNAME_ERROR_REQUIRED'|translate"></mat-error>
+      </mat-form-field>
+      <mat-form-field class="green-theme">
+        <input [placeholder]="'FORM_EMAIL'|translate"
+               [formControl]="emailFormControl"
+               [errorStateMatcher]="matcher"
+               formControlName="email"
+               matInput>
+        <mat-error *ngIf="emailFormControl.hasError('required')"
+                   [innerHTML]="'FORM_EMAIL_ERROR_REQUIRED'|translate"></mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')"
+                   [innerHTML]="'FORM_EMAIL_ERROR_EMAIL'|translate"></mat-error>
+      </mat-form-field>
+      <mat-form-field class="signup-password green-theme">
+        <input [type]="isPasswordVisible ? 'text' : 'password'"
+               [placeholder]="'FORM_PASSWORD'|translate"
+               [formControl]="passwordFormControl"
+               [errorStateMatcher]="matcher"
+               formControlName="password"
+               matInput>
+        <mat-hint *ngIf="passwordFormControl.pristine"
+                  [innerHTML]="'FORM_PASSWORD_ERROR_PATTERN'|translate"></mat-hint>
+        <mat-error *ngIf="passwordFormControl.hasError('required')"
+                   [innerHTML]="'FORM_PASSWORD_ERROR_REQUIRED'|translate"></mat-error>
+        <mat-error *ngIf="passwordFormControl.hasError('minlength') && !passwordFormControl.hasError('pattern')"
+                   [innerHTML]="'FORM_PASSWORD_ERROR_MINLENGTH'|translate"></mat-error>
+        <mat-error *ngIf="passwordFormControl.hasError('pattern')"
+                   [innerHTML]="'FORM_PASSWORD_ERROR_PATTERN'|translate"></mat-error>
+        <uw-button class="signup-password-toggle"
+                   inline="inline"
+                   (click)="togglePasswordVisibility($event)">
+          <mat-icon>visibility{{isPasswordVisible ? '_off' : ''}}</mat-icon>
+        </uw-button>
+      </mat-form-field>
+      <mat-form-field class="signup-password green-theme">
+        <input [type]="isPasswordVisible ? 'text' : 'password'"
+               [placeholder]="'FORM_PASSWORDMATCH'|translate"
+               [formControl]="passwordMatchFormControl"
+               [errorStateMatcher]="matcher"
+               formControlName="passwordMatch"
+               matInput>
+        <mat-error *ngIf="passwordMatchFormControl.hasError('mismatch')"
+                   [innerHTML]="'FORM_PASSWORDMATCH_ERROR_MISMATCH'|translate"></mat-error>
+        <uw-button class="signup-password-toggle"
+                   inline="inline"
+                   (click)="togglePasswordVisibility($event)">
+          <mat-icon>visibility{{isPasswordVisible ? '_off' : ''}}</mat-icon>
+        </uw-button>
+      </mat-form-field>
+      <div fxLayout="column"
+           fxLayoutAlign="start center">
+        <uw-button class="signup-terms"
+                   inline="inline">{{'COMMON_TOS'|translate}}</uw-button>
+        <uw-button type="submit"
+                   [disabled]="signUpFormGroup.invalid">{{'COMMON_SIGNUP'|translate}}</uw-button>
+      </div>
+    </form>
+  </div>
+</uw-container-simple>
