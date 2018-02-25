@@ -1,11 +1,43 @@
 <button [type]="type"
         class="button"
-        [ngClass]="{ inline: inline }"
-        [disabled]="disabled">
+        [ngClass]="{
+          inline: inline,
+          error: error
+        }"
+        [disabled]="disabled"
+        (click)="_doAction()">
   <span class="button-text"
         fxLayout="row"
         fxLayoutAlign="center center"
-        fxFill>
+        fxFill
+        *ngIf="!subscription && !success && !error"
+        @fade>
     <ng-content></ng-content>
+  </span>
+  <span class="button-text white-theme"
+        fxLayout="row"
+        fxLayoutAlign="center center"
+        fxFill
+        *ngIf="subscription && !success && !error"
+        @fade>
+    <mat-spinner diameter="30"
+                 strokeWidth="2"></mat-spinner>
+  </span>
+  <span class="button-text"
+        [ngClass]="disabled ? 'primary' : 'white'"
+        fxLayout="row"
+        fxLayoutAlign="center center"
+        fxFill
+        *ngIf="success"
+        @fade>
+    <mat-icon>check</mat-icon>
+  </span>
+  <span class="button-text white"
+        fxLayout="row"
+        fxLayoutAlign="center center"
+        fxFill
+        *ngIf="error"
+        @fade>
+    <mat-icon>error</mat-icon>
   </span>
 </button>

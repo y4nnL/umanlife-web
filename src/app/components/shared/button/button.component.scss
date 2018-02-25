@@ -5,6 +5,8 @@ $buttonColor: #1abc9c;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
+  position: relative;
+  overflow: hidden;
 
   &:not(.inline) {
 
@@ -19,7 +21,7 @@ $buttonColor: #1abc9c;
     line-height: 22px;
     text-transform: uppercase;
     color: #FFF;
-    transition: background-color .25s linear, transform .1s ease-out;
+    transition: background-color .25s linear, transform .15s ease-out;
     border: 0;
     outline: none;
     cursor: pointer;
@@ -30,7 +32,7 @@ $buttonColor: #1abc9c;
     }
 
     &:active {
-      transform: scale(.97);
+      transform: scale(.95);
     }
 
     &[disabled] {
@@ -39,8 +41,13 @@ $buttonColor: #1abc9c;
       transform: none;
     }
 
-    & > .button-text {
-      padding-top: 3px;
+    .button-text {
+      white-space: nowrap;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
     }
 
   }
@@ -55,7 +62,7 @@ $buttonColor: #1abc9c;
     font-size: 14px;
     text-transform: uppercase;
     color: #1abc9c;
-    transition: color .25s linear, background-color .15s linear, transform .1s ease-out;
+    transition: color .25s linear, background-color .15s linear, transform .15s ease-out;
     border: 0;
     outline: none;
     cursor: pointer;
@@ -66,7 +73,7 @@ $buttonColor: #1abc9c;
     }
 
     &:active {
-      transform: scale(.97);
+      transform: scale(.95);
     }
 
     &[disabled] {
@@ -74,6 +81,22 @@ $buttonColor: #1abc9c;
       color: lighten(grayscale($buttonColor), 30%);
       transform: none;
       background-color: rgba(#EEE, 0);
+    }
+
+  }
+
+  &.error {
+    background-color: rgba(#F2453D, 1) !important;
+  }
+
+  .button-text {
+
+    &.white {
+      color: #FFF;
+    }
+
+    &.primary {
+      color: $buttonColor;
     }
 
   }

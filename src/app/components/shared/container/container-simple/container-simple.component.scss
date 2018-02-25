@@ -6,7 +6,7 @@
   margin: 0 auto;
 
   &:not(.wide) {
-    width: 700px;
+    width: 768px;
   }
 
   .container-simple-title {
@@ -16,6 +16,19 @@
     color: #292938;
     padding: 0;
     margin: 0 0 40px 0;
+  }
+
+}
+
+@media only screen and (max-width : 768px) {
+
+  :host .container-simple {
+
+    &:not(.wide) {
+      width: 100%;
+      padding: 120px 10px 0 10px;
+    }
+
   }
 
 }

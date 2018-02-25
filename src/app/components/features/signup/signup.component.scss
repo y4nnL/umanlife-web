@@ -20,3 +20,12 @@
   }
 
 }
+
+@media only screen and (max-width : 400px) {
+
+  :host .signup {
+    width: 100%;
+    margin: 0;
+  }
+
+}

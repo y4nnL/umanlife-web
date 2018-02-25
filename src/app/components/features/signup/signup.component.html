@@ -1,7 +1,8 @@
 <uw-container-simple [title]="'COMMON_SIGNUP'|translate">
   <div class="signup">
     <form [formGroup]="signUpFormGroup"
-          fxLayout="column">
+          fxLayout="column"
+          novalidate>
       <mat-form-field class="">
         <input [placeholder]="'FORM_USERNAME'|translate"
                [formControl]="usernameFormControl"
@@ -12,7 +13,8 @@
                    [innerHTML]="'FORM_USERNAME_ERROR_REQUIRED'|translate"></mat-error>
       </mat-form-field>
       <mat-form-field class="green-theme">
-        <input [placeholder]="'FORM_EMAIL'|translate"
+        <input type="email"
+               [placeholder]="'FORM_EMAIL'|translate"
                [formControl]="emailFormControl"
                [errorStateMatcher]="matcher"
                formControlName="email"
@@ -29,8 +31,8 @@
                [errorStateMatcher]="matcher"
                formControlName="password"
                matInput>
-        <mat-hint *ngIf="passwordFormControl.pristine"
-                  [innerHTML]="'FORM_PASSWORD_ERROR_PATTERN'|translate"></mat-hint>
+        <mat-hint *ngIf="passwordFormControl.invalid"
+                  [innerHTML]="'FORM_PASSWORD_HINT'|translate"></mat-hint>
         <mat-error *ngIf="passwordFormControl.hasError('required')"
                    [innerHTML]="'FORM_PASSWORD_ERROR_REQUIRED'|translate"></mat-error>
         <mat-error *ngIf="passwordFormControl.hasError('minlength') && !passwordFormControl.hasError('pattern')"
@@ -61,9 +63,12 @@
       <div fxLayout="column"
            fxLayoutAlign="start center">
         <uw-button class="signup-terms"
-                   inline="inline">{{'COMMON_TOS'|translate}}</uw-button>
+                   inline="inline"
+                   (click)="showTermsOfService()">{{'COMMON_TOS'|translate}}</uw-button>
         <uw-button type="submit"
-                   [disabled]="signUpFormGroup.invalid">{{'COMMON_SIGNUP'|translate}}</uw-button>
+                   [disabled]="signUpFormGroup.invalid || signUpObservable"
+                   [observable]="signUpObservable"
+                   (action)="signup()">{{'COMMON_SIGNUP'|translate}}</uw-button>
       </div>
     </form>
   </div>

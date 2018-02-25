@@ -4,6 +4,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatButtonModule } from '@angular/material/button';
@@ -22,6 +23,8 @@ import { SignupComponent } from './components/features/signup/signup.component';
 import { HeaderComponent } from './components/shared/header/header.component';
 import { ContainerSimpleComponent } from './components/shared/container/container-simple/container-simple.component';
 
+import { ServerModule } from './providers/Server/Server.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,15 +41,16 @@ import { ContainerSimpleComponent } from './components/shared/container/containe
     FormsModule,
     ReactiveFormsModule,
     TranslateModule.forRoot(),
+    MatDialogModule,
     MatProgressSpinnerModule,
     MatSliderModule,
     MatButtonModule,
     MatIconModule,
     MatFormFieldModule,
     MatInputModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ServerModule
   ],
-  providers: [],
   bootstrap: [
     AppComponent
   ]

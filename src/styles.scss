@@ -135,3 +135,17 @@ $greenPalette: mat-palette((
 .mat-error {
   padding-bottom: 3px;
 }
+
+.mat-dialog-light,
+.mat-dialog-light .mat-dialog-container {
+  max-width: none !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background-color: rgba(white, 0) !important;
+}
+
+.mat-dialog-light {
+  background-color: rgba(white, .92) !important;
+}

@@ -8,7 +8,7 @@ export class MaterialDirtyStateMatcher implements ErrorStateMatcher {
     if (isSubmitted) {
       return !!(control && control.invalid);
     } else {
-      return !!(control && control.dirty && control.invalid);
+      return !!(control && control.touched && control.dirty && control.invalid);
     }
   }
 

@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Observable } from 'rxjs/Observable';
 
 import { MaterialDirtyStateMatcher } from '../../../helpers/MaterialDirtyStateMatcher';
 import { HeaderData } from '../../shared/header/header.component';
+import { Server, ServerSignUpData } from '../../../providers/Server/Server';
 
 export const signupHeaderData: HeaderData = {
   header: {
@@ -18,10 +20,10 @@ export const signupHeaderData: HeaderData = {
 })
 export class SignupComponent implements OnInit {
 
-  matcher = new MaterialDirtyStateMatcher;
-
   isPasswordVisible = false;
-
+  matcher = new MaterialDirtyStateMatcher;
+  signUpObservable: Observable<boolean>;
+  signUpSuccess = false;
   signUpFormGroup: FormGroup;
 
   usernameFormControl: FormControl;
@@ -29,7 +31,7 @@ export class SignupComponent implements OnInit {
   passwordFormControl: FormControl;
   passwordMatchFormControl: FormControl;
 
-  constructor() { }
+  constructor(private _server: Server) { }
 
   ngOnInit() {
     this._initFormControls();
@@ -81,6 +83,26 @@ export class SignupComponent implements OnInit {
     this.isPasswordVisible = !this.isPasswordVisible;
     event.stopImmediatePropagation();
     event.stopPropagation();
+  }
+
+  showTermsOfService() {
+    console.warn('TODO TermsOfServiceComponent');
+  }
+
+  signup() {
+    if (this.signUpFormGroup.valid) {
+      const data: ServerSignUpData = {
+        username: this.signUpFormGroup.value.username,
+        email: this.signUpFormGroup.value.email,
+        password: this.signUpFormGroup.value.password,
+      };
+      this.signUpObservable = this._server.signup(data);
+      this.signUpObservable
+        .subscribe(
+          () => this.signUpSuccess = true,
+          () => this.signUpObservable = null
+        );
+    }
   }
 
 }
