@@ -10,9 +10,13 @@
   "FORM_PASSWORD_ERROR_MINLENGTH": "The password must have at least <strong>height characters</strong>",
   "FORM_PASSWORD_ERROR_PATTERN": "The password must have at least <strong>one letter</strong>, <strong>one number</strong> and <strong>one special character</strong>",
   "FORM_PASSWORD_ERROR_REQUIRED": "The password is <strong>required</strong>",
+  "FORM_PASSWORD_HINT": "The password must have at least height characters including one letter, one number and one special character",
   "FORM_PASSWORDMATCH": "Confirm password",
   "FORM_PASSWORDMATCH_ERROR_MISMATCH": "You must <strong>confirm</strong> the password",
   "FORM_USERNAME": "Username",
   "FORM_USERNAME_ERROR_REQUIRED": "The username is <strong>required</strong>",
+  "SIGNUP_SUCCESS_TITLE": "Bienvenue {{username}} !",
+  "SIGNUP_SUCCESS_TEXT": "Nous venons de vous envoyer un email contenant un lien pour finaliser votre inscription.",
+  "SIGNUP_SUCCESS_LINK": "Aller sur {{link}}",
 	"WELCOME_SIGNIN": "I already have an account"
 }

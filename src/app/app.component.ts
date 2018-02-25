@@ -69,6 +69,9 @@ export class AppComponent implements OnInit {
   private _initNavigationRx() {
     this.router.events
       .filter(event => event instanceof NavigationEnd)
-      .subscribe(() => this._isNavigating = false);
+      .subscribe(() => {
+        this._isNavigating = false;
+        window.scrollTo(0, 0);
+      });
   }
 }

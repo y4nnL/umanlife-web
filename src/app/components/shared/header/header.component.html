@@ -5,12 +5,12 @@
      @displayed>
   <div class="header-logo"
        routerLink="/">TODO logo</div>
-  <uw-button class="header-back"
-             inline="inline"
-             [disabled]="!canGoBack()"
-             (click)="goBack()"
-             *ngIf="canGoBack()"
-             @back>
-    <mat-icon>keyboard_backspace</mat-icon>
-  </uw-button>
 </div>
+<uw-button class="header-back"
+           inline="inline"
+           [disabled]="!canGoBack()"
+           (click)="goBack()"
+           *ngIf="canGoBack()"
+           @back>
+  <mat-icon>keyboard_backspace</mat-icon>
+</uw-button>

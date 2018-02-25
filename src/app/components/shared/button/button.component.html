@@ -25,12 +25,13 @@
   </span>
   <span class="button-text"
         [ngClass]="disabled ? 'primary' : 'white'"
+        [style.color]="successColor || 'inherit'"
         fxLayout="row"
         fxLayoutAlign="center center"
         fxFill
         *ngIf="success"
         @fade>
-    <mat-icon>check</mat-icon>
+    <mat-icon>{{successIcon || 'check'}}</mat-icon>
   </span>
   <span class="button-text white"
         fxLayout="row"

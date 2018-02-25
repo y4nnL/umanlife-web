@@ -99,6 +99,13 @@ $buttonColor: #1abc9c;
       color: $buttonColor;
     }
 
+    .mat-icon {
+      font-size: 36px;
+      position: relative;
+      top: -6px;
+      left: -6px;
+    }
+
   }
 
 }

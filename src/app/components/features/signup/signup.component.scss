@@ -1,7 +1,8 @@
 :host .signup {
 
   width: 400px;
-  margin: 0 auto;
+  margin: 0 auto 10px auto;
+  position: relative;
 
   .signup-password {
 
@@ -17,6 +18,25 @@
 
   .signup-terms {
     margin: 10px 0 40px 0;
+  }
+
+  .signup-form {
+    position: relative;
+    z-index: 2;
+    background: #FFF;
+    overflow: hidden;
+  }
+
+  .signup-success {
+
+    position: absolute;
+    top: 100px;
+    width: 100%;
+
+    .signup-success-link {
+      margin-top: 30px;
+    }
+
   }
 
 }

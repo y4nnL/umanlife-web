@@ -20,6 +20,8 @@ export class ButtonComponent implements OnChanges {
   @Input('disabled') disabled = false;
   @Input('inline') inline = false;
   @Input('observable') observable: Observable<any>;
+  @Input('successColor') successColor: string;
+  @Input('successIcon') successIcon: string;
 
   @Output('action') action = new EventEmitter<any>();
 
