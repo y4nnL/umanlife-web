@@ -1,7 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { WelcomeComponent, welcomeHeaderData } from './components/features/welcome/welcome.component';
-import { SignupComponent, signupHeaderData } from './components/features/signup/signup.component';
+import {
+  WelcomeComponent,
+  welcomeRouterDataHeader,
+  welcomeRouterDataState
+} from './components/features/welcome/welcome.component';
+import {
+  SignupComponent,
+  signupRouterDataHeader,
+  signupRouterDataState
+} from './components/features/signup/signup.component';
 
 const routes: Routes = [
   {
@@ -10,12 +18,12 @@ const routes: Routes = [
       {
         path: '',
         component: WelcomeComponent,
-        data: { ...welcomeHeaderData },
+        data: { ...welcomeRouterDataHeader, ...welcomeRouterDataState },
       },
       {
         path: 'signup',
         component: SignupComponent,
-        data: { ...signupHeaderData }
+        data: { ...signupRouterDataHeader, ...signupRouterDataState }
       }
     ]
   },

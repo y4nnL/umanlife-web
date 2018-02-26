@@ -3,16 +3,21 @@ import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/fo
 import { Observable } from 'rxjs/Observable';
 
 import { MaterialDirtyStateMatcher } from '../../../helpers/MaterialDirtyStateMatcher';
-import { HeaderData } from '../../shared/header/header.component';
 import { Server, SignupData } from '../../../providers/Server/Server';
 
 import { animations } from './signup-animation';
+import { RouterDataState } from '../../../helpers/routerData/RouterDataState';
+import { RouterDataHeader } from '../../../helpers/routerData/RouterDataHeader';
 
-export const signupHeaderData: HeaderData = {
+export const signupRouterDataHeader: RouterDataHeader = {
   header: {
     display: true,
     back: true
   }
+};
+
+export const signupRouterDataState: RouterDataState = {
+  state: 'signup'
 };
 
 @Component({
@@ -36,6 +41,46 @@ export class SignupComponent implements OnInit {
   usernameControl: FormControl;
 
   constructor(private _server: Server) { }
+
+  getEmailHostname(): string {
+    return this.email.split('@').pop();
+  }
+
+  goToMail() {
+    window.open(`http://${this.getEmailHostname()}`);
+  }
+
+  ngOnInit() {
+    this._initFormControls();
+    this._initForm();
+  }
+
+  // TODO show TermsOfServiceComponent in signup
+  showTermsOfService() {
+    console.warn('TODO TermsOfServiceComponent');
+  }
+
+  signup() {
+    if (this.form.valid) {
+      const data: SignupData = {
+        username: this.form.value.username,
+        email: this.form.value.email,
+        password: this.form.value.password,
+      };
+      this.serverObservable = this._server.signup(data);
+      this.serverObservable
+        .subscribe(
+          () => this.email = this.form.value.email,
+          () => this.serverObservable = null
+        );
+    }
+  }
+
+  togglePasswordVisibility(event: Event) {
+    this.isPasswordVisible = !this.isPasswordVisible;
+    event.stopImmediatePropagation();
+    event.stopPropagation();
+  }
 
   private _initForm() {
     this.form = new FormGroup(
@@ -69,6 +114,7 @@ export class SignupComponent implements OnInit {
     this.passwordMatchControl = new FormControl('');
   }
 
+  // TODO externalize and parameterize password matching validator
   private _passwordMatch(abstractControl: AbstractControl) {
     const passwordMatchValue = abstractControl.get('passwordMatch').value;
     const passwordValue = abstractControl.get('password').value;
@@ -76,45 +122,6 @@ export class SignupComponent implements OnInit {
       abstractControl.get('passwordMatch').setErrors({ mismatch: true } );
     }
     return null;
-  }
-
-  getEmailHostname(): string {
-    return this.email.split('@').pop();
-  }
-
-  goToMail() {
-    window.open(`http://${this.getEmailHostname()}`);
-  }
-
-  ngOnInit() {
-    this._initFormControls();
-    this._initForm();
-  }
-
-  showTermsOfService() {
-    console.warn('TODO TermsOfServiceComponent');
-  }
-
-  signup() {
-    if (this.form.valid) {
-      const data: SignupData = {
-        username: this.form.value.username,
-        email: this.form.value.email,
-        password: this.form.value.password,
-      };
-      this.serverObservable = this._server.signup(data);
-      this.serverObservable
-        .subscribe(
-          () => this.email = this.form.value.email,
-          () => this.serverObservable = null
-        );
-    }
-  }
-
-  togglePasswordVisibility(event: Event) {
-    this.isPasswordVisible = !this.isPasswordVisible;
-    event.stopImmediatePropagation();
-    event.stopPropagation();
   }
 
 }

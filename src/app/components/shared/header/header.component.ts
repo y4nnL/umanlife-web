@@ -1,19 +1,13 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 
 import { animations } from './header-animations';
+import { RouterDataHeader } from '../../../helpers/routerData/RouterDataHeader';
 
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
-
-export interface HeaderData {
-  header: {
-    display: boolean;
-    back?: boolean|string;
-  };
-}
 
 @Component({
   selector: 'uw-header',
@@ -47,7 +41,7 @@ export class HeaderComponent implements OnInit {
       .filter((route) => route.outlet === 'primary')
       .mergeMap((route) => route.data)
       .subscribe((data) => {
-        const headerData = <HeaderData>data;
+        const headerData = <RouterDataHeader>data;
         if (headerData && headerData.header) {
           this.displayed = headerData.header.display;
           this.back = headerData.header.back;

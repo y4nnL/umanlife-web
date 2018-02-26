@@ -1,4 +1,4 @@
-import { trigger, style, animate, transition } from '@angular/animations';
+import { trigger, style, animate, transition, query, group } from '@angular/animations';
 
 export const splashAnimation = trigger('splash', [
   transition('* => void', [
@@ -34,10 +34,38 @@ export const spinnerAnimation = trigger('spinner', [
   ])
 ]);
 
+const routerInGroup = group([
+  query(':leave', [
+    style({ zIndex: 1 }),
+    animate('200ms ease-out', style({ transform: 'scale(1.08)', opacity: 0 }))
+  ], { optional: true }),
+  query(':enter', [
+    style({ zIndex: 2, transform: 'scale(0.92)', opacity: 0 }),
+    animate('200ms 100ms ease-in')
+  ], { optional: true }),
+]);
+
+const routerOutGroup = group([
+  query(':leave', [
+    style({ zIndex: 2 }),
+    animate('200ms ease-in', style({ transform: 'scale(0.92)', opacity: 0 }))
+  ], { optional: true }),
+  query(':enter', [
+    style({ zIndex: 1, transform: 'scale(1.08)', opacity: 0 }),
+    animate('200ms 100ms ease-out')
+  ], { optional: true })
+]);
+
+export const routerAnimation = trigger('router', [
+  transition('welcome => *', [ routerInGroup ]),
+  transition('* => welcome', [ routerOutGroup ])
+]);
+
 export const animations = [
   splashAnimation,
   bg1Animation,
   bg2Animation,
   bg3Animation,
-  spinnerAnimation
+  spinnerAnimation,
+  routerAnimation
 ];

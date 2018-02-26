@@ -12,7 +12,8 @@ $appSplashLogoZIndex: 4;
   .app-splash,
   .app-splash-logo,
   .app-header,
-  .app-content {
+  .app-content,
+  /deep/ .app-content > *:not(:first-child) {
     position: absolute;
     top: 0;
     right: 0;

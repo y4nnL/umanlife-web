@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 
 import { animations } from './app-animations';
@@ -37,6 +37,14 @@ export class AppComponent implements OnInit {
     private translate: TranslateService,
   ) { }
 
+  getRouteState(outlet: RouterOutlet): string {
+    return outlet.activatedRouteData.state;
+  }
+
+  isSplashDisplayed(): boolean {
+    return this._spinnerIsReady === false || this._isNavigating === true;
+  }
+
   ngOnInit() {
     this._initTranslate();
     this._initNavigationRx();
@@ -46,8 +54,13 @@ export class AppComponent implements OnInit {
     setTimeout(() => this._spinnerIsReady = true, SPINNER_MIN_TIME);
   }
 
-  isSplashDisplayed(): boolean {
-    return this._spinnerIsReady === false || this._isNavigating === true;
+  private _initNavigationRx() {
+    this.router.events
+      .filter(event => event instanceof NavigationEnd)
+      .subscribe(() => {
+        this._isNavigating = false;
+        window.scrollTo(0, 0);
+      });
   }
 
   private _initTranslate() {
@@ -66,12 +79,4 @@ export class AppComponent implements OnInit {
     this.translate.use(usedLocale);
   }
 
-  private _initNavigationRx() {
-    this.router.events
-      .filter(event => event instanceof NavigationEnd)
-      .subscribe(() => {
-        this._isNavigating = false;
-        window.scrollTo(0, 0);
-      });
-  }
 }
