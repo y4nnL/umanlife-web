@@ -10,6 +10,11 @@ import {
   signupRouterDataHeader,
   signupRouterDataState
 } from './components/features/signup/signup.component';
+import {
+  SigninComponent,
+  signinRouterDataHeader,
+  signinRouterDataState
+} from './components/features/signin/signin.component';
 
 const routes: Routes = [
   {
@@ -24,6 +29,11 @@ const routes: Routes = [
         path: 'signup',
         component: SignupComponent,
         data: { ...signupRouterDataHeader, ...signupRouterDataState }
+      },
+      {
+        path: 'signin',
+        component: SigninComponent,
+        data: { ...signinRouterDataHeader, ...signinRouterDataState }
       }
     ]
   },

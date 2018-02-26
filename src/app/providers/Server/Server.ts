@@ -8,6 +8,11 @@ import 'rxjs/add/operator/mergeMap';
 
 const FAKE_DELAY = 2000;
 
+export interface SigninData {
+  email: string;
+  password: string;
+}
+
 export interface SignupData {
   username: string;
   email: string;
@@ -20,6 +25,12 @@ export class Server {
   constructor(_httpClient: HttpClient) { }
 
   signup(data: SignupData): Observable<boolean> {
+    return Observable.of(true)
+      .delay(FAKE_DELAY);
+      // .mergeMap(() => Observable.throw(new Error('yo')));
+  }
+
+  signin(data: SigninData): Observable<boolean> {
     return Observable.of(true)
       .delay(FAKE_DELAY);
       // .mergeMap(() => Observable.throw(new Error('yo')));

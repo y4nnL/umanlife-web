@@ -15,6 +15,7 @@
   "FORM_PASSWORDMATCH_ERROR_MISMATCH": "Le mot de passe n'est pas <strong>confirmé</strong>",
   "FORM_USERNAME": "Nom d'utilisateur",
   "FORM_USERNAME_ERROR_REQUIRED": "Le nom d'utilisateur est <strong>obligatoire</strong>",
+  "SIGNIN_FORGOT": "Mot de passe oublié",
   "SIGNUP_SUCCESS_TITLE": "Bienvenue {{username}} !",
   "SIGNUP_SUCCESS_TEXT": "Nous venons de vous envoyer un email contenant un lien pour finaliser votre inscription.",
   "SIGNUP_SUCCESS_LINK": "Aller sur {{link}}",

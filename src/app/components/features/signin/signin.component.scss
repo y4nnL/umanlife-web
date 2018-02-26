@@ -1,0 +1,20 @@
+:host .signin {
+
+  width: 400px;
+  margin: 0 auto 10px auto;
+  position: relative;
+
+  .signin-forget {
+    margin: 10px 0 40px 0;
+  }
+
+}
+
+@media only screen and (max-width : 400px) {
+
+  :host .signin {
+    width: 100%;
+    margin: 0;
+  }
+
+}

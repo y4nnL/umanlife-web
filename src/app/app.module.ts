@@ -24,6 +24,7 @@ import { HeaderComponent } from './components/shared/header/header.component';
 import { ContainerSimpleComponent } from './components/shared/container/container-simple/container-simple.component';
 
 import { ServerModule } from './providers/Server/Server.module';
+import { SigninComponent } from './components/features/signin/signin.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ServerModule } from './providers/Server/Server.module';
     ButtonComponent,
     SignupComponent,
     HeaderComponent,
-    ContainerSimpleComponent
+    ContainerSimpleComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,

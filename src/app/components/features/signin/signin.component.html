@@ -1,0 +1,37 @@
+<uw-container-simple [title]="'COMMON_SIGNIN'|translate">
+  <div class="signin">
+    <form [formGroup]="form"
+          fxLayout="column"
+          novalidate>
+      <mat-form-field class="green-theme">
+        <input type="email"
+               [placeholder]="'FORM_EMAIL'|translate"
+               [formControl]="emailControl"
+               [errorStateMatcher]="matcher"
+               formControlName="email"
+               matInput>
+        <mat-error *ngIf="emailControl.hasError('required')"
+                   [innerHTML]="'FORM_EMAIL_ERROR_REQUIRED'|translate"></mat-error>
+      </mat-form-field>
+      <mat-form-field class="signup-password green-theme">
+        <input type="password"
+               [placeholder]="'FORM_PASSWORD'|translate"
+               [formControl]="passwordControl"
+               [errorStateMatcher]="matcher"
+               formControlName="password"
+               matInput>
+        <mat-error *ngIf="passwordControl.hasError('required')"
+                   [innerHTML]="'FORM_PASSWORD_ERROR_REQUIRED'|translate"></mat-error>
+      </mat-form-field>
+      <div fxLayout="column"
+           fxLayoutAlign="start center">
+        <uw-button class="signin-forget"
+                   inline="inline">{{'SIGNIN_FORGOT'|translate}}</uw-button>
+        <uw-button type="submit"
+                   [disabled]="form.invalid || serverObservable"
+                   [observable]="serverObservable"
+                   (action)="signup()">{{'COMMON_SIGNIN'|translate}}</uw-button>
+      </div>
+    </form>
+  </div>
+</uw-container-simple>
