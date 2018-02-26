@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 
 import { MaterialDirtyStateMatcher } from '../../../helpers/MaterialDirtyStateMatcher';
 import { Server } from '../../../providers/Server/Server';
-import { IServerComponent } from '../../../helpers/IServerComponent';
+import { IServerComponent } from '../../../providers/Server/Server-guard';
 import { ForgotData } from '../../../providers/Server/Server-data';
 
 import { animations } from './forgot-animation';

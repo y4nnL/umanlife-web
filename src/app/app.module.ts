@@ -21,13 +21,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { WelcomeComponent } from './components/features/welcome/welcome.component';
 import { ButtonComponent } from './components/shared/button/button.component';
 import { ForgotComponent } from './components/features/forgot/forgot.component';
+import { PasswordComponent } from './components/features/password/password.component';
 import { SigninComponent } from './components/features/signin/signin.component';
 import { SignupComponent } from './components/features/signup/signup.component';
 import { HeaderComponent } from './components/shared/header/header.component';
 import { ContainerSimpleComponent } from './components/shared/container/container-simple/container-simple.component';
 
 import { ServerModule } from './providers/Server/Server.module';
-import { CanDeactivateServerComponent } from './helpers/CanDeactivateServerComponent';
+import { CanDeactivateServerComponent } from './providers/Server/Server-guard';
+import { CanActivatePasswordToken } from './components/features/password/password-guard';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,8 @@ import { CanDeactivateServerComponent } from './helpers/CanDeactivateServerCompo
     HeaderComponent,
     ContainerSimpleComponent,
     SigninComponent,
-    ForgotComponent
+    ForgotComponent,
+    PasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +62,8 @@ import { CanDeactivateServerComponent } from './helpers/CanDeactivateServerCompo
     ServerModule
   ],
   providers: [
-    CanDeactivateServerComponent
+    CanDeactivateServerComponent,
+    CanActivatePasswordToken
   ],
   bootstrap: [
     AppComponent

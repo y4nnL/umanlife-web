@@ -12,3 +12,11 @@ export interface SignupData {
 export interface ForgotData {
   email: string;
 }
+
+export interface PasswordData {
+  password: string;
+}
+
+export interface TokenData {
+  token: string;
+}

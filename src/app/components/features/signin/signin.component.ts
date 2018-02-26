@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 
 import { MaterialDirtyStateMatcher } from '../../../helpers/MaterialDirtyStateMatcher';
 import { Server } from '../../../providers/Server/Server';
-import { IServerComponent } from '../../../helpers/IServerComponent';
+import { IServerComponent } from '../../../providers/Server/Server-guard';
 import { SigninData } from '../../../providers/Server/Server-data';
 
 @Component({

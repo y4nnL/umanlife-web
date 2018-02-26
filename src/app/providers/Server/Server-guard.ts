@@ -1,7 +1,11 @@
 import { CanDeactivate } from '@angular/router';
-import { IServerComponent } from './IServerComponent';
 import { MatSnackBar } from '@angular/material';
 import { TranslateService } from '@ngx-translate/core';
+import { Observable } from 'rxjs/Observable';
+
+export interface IServerComponent {
+  serverObservable: Observable<any>;
+}
 
 export class CanDeactivateServerComponent implements CanDeactivate<IServerComponent> {
 

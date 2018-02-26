@@ -5,61 +5,42 @@ import { Observable } from 'rxjs/Observable';
 import { MaterialDirtyStateMatcher } from '../../../helpers/MaterialDirtyStateMatcher';
 import { Server } from '../../../providers/Server/Server';
 import { IServerComponent } from '../../../providers/Server/Server-guard';
-import { SignupData } from '../../../providers/Server/Server-data';
+import { PasswordData } from '../../../providers/Server/Server-data';
 
-import { animations } from './signup-animation';
+import { animations } from './password-animation';
 
 @Component({
-  selector: 'uw-signup',
-  templateUrl: './signup.component.html',
+  selector: 'uw-password',
+  templateUrl: './password.component.html',
   styleUrls: [
-    './signup.component.scss'
+    './password.component.scss'
   ],
   animations: animations
 })
-export class SignupComponent implements OnInit, IServerComponent {
+export class PasswordComponent implements OnInit, IServerComponent {
 
-  email = '';
-  emailControl: FormControl;
   form: FormGroup;
   isPasswordVisible = false;
   matcher = new MaterialDirtyStateMatcher;
   passwordControl: FormControl;
   passwordMatchControl: FormControl;
   serverObservable: Observable<any>;
-  usernameControl: FormControl;
+  success = false;
 
   constructor(private _server: Server) { }
-
-  getEmailHostname(): string {
-    return this.email.split('@').pop();
-  }
-
-  goToMail() {
-    window.open(`http://${this.getEmailHostname()}`);
-  }
 
   ngOnInit() {
     this._initFormControls();
     this._initForm();
   }
 
-  // TODO show TermsOfServiceComponent in signup
-  showTermsOfService() {
-    console.warn('TODO TermsOfServiceComponent');
-  }
-
-  signup() {
+  password() {
     if (this.form.valid) {
-      const data: SignupData = {
-        username: this.form.value.username,
-        email: this.form.value.email,
-        password: this.form.value.password,
-      };
-      this.serverObservable = this._server.signup(data);
+      const data: PasswordData = { password: this.form.value.password };
+      this.serverObservable = this._server.password(data);
       this.serverObservable
         .subscribe(
-          () => this.email = this.form.value.email,
+          () => this.success = true,
           () => this.serverObservable = null,
           () => this.serverObservable = null
         );
@@ -74,8 +55,6 @@ export class SignupComponent implements OnInit, IServerComponent {
 
   private _initForm() {
     this.form = new FormGroup({
-      username: this.usernameControl,
-      email: this.emailControl,
       password: this.passwordControl,
       passwordMatch: this.passwordMatchControl
     }, {
@@ -86,13 +65,6 @@ export class SignupComponent implements OnInit, IServerComponent {
   }
 
   private _initFormControls() {
-    this.usernameControl = new FormControl('', [
-      Validators.required,
-    ]);
-    this.emailControl = new FormControl('', [
-      Validators.required,
-      Validators.email
-    ]);
     this.passwordControl = new FormControl('', [
       Validators.required,
       Validators.pattern(/(?=.*[a-z])(?=.*\d+)(?=.*[A-Z]+)(?=.*(\W|_)+)/),

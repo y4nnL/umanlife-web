@@ -6,6 +6,7 @@
            fxLayout="column"
            *ngIf="!email"
            @collapse>
+        <div class="forgot-form-intro">{{'FORGOT_INTRO'|translate}}</div>
         <mat-form-field class="green-theme">
           <input type="email"
                  [placeholder]="'FORM_EMAIL'|translate"

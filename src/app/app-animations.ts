@@ -82,7 +82,8 @@ export const routerAnimation = trigger('router', [
   transition('welcome => *', [ routerAnimationDiveGroup ]),
   transition('* => welcome', [ routerAnimationRiseGroup ]),
   transition('* => forgot', [ routerAnimationSlideRightGroup ]),
-  transition('forgot => *', [ routerAnimationSlideLeftGroup ])
+  transition('forgot => *', [ routerAnimationSlideLeftGroup ]),
+  transition('password => *', [ routerAnimationRiseGroup ])
 ]);
 
 export const animations = [

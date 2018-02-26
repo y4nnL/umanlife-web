@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
-import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
+import { Router, ActivatedRoute, NavigationEnd, ActivatedRouteSnapshot } from '@angular/router';
 
 import { animations } from './header-animations';
-import { RouterDataHeader } from '../../../helpers/router-data';
+import { RouterDataHeader, RouterDataHeaderBack } from '../../../helpers/router-data';
 
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
+import 'rxjs/add/operator/do';
 
 @Component({
   selector: 'uw-header',
@@ -20,7 +21,9 @@ import 'rxjs/add/operator/mergeMap';
 export class HeaderComponent implements OnInit {
 
   displayed = false;
-  back: boolean|string[] = false;
+  back: boolean|string[]|RouterDataHeaderBack = false;
+
+  private previousRouteSnapshot: ActivatedRouteSnapshot;
 
   constructor(
     private _location: Location,
@@ -29,9 +32,11 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    let activatedRouteSnapshot: ActivatedRouteSnapshot;
     this._router.events
       .filter((event) => event instanceof NavigationEnd)
       .map(() => this._activatedRoute)
+      .do((route) => activatedRouteSnapshot = route.snapshot)
       .map((route) => {
         while (route.firstChild) {
           route = route.firstChild;
@@ -45,6 +50,10 @@ export class HeaderComponent implements OnInit {
         if (headerData && headerData.header) {
           this.displayed = headerData.header.display;
           this.back = headerData.header.back;
+          if (typeof this.back === 'function') {
+            this.back = this.back(activatedRouteSnapshot, this.previousRouteSnapshot);
+          }
+          this.previousRouteSnapshot = activatedRouteSnapshot;
         }
       });
   }
@@ -56,7 +65,7 @@ export class HeaderComponent implements OnInit {
   goBack() {
     if (Array.isArray(this.back)) {
       this._router.navigate(this.back);
-    } else if (this.back === true) {
+    } else if (!!this.back) {
       this._location.back();
     }
   }
