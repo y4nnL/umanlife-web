@@ -8,21 +8,21 @@ export const splashAnimation = trigger('splash', [
 
 export const bg1Animation = trigger('bg1', [
   transition('* => *', [
-    style({ opacity: 0, transform: 'rotate(-25deg)' }),
+    style({ opacity: 0, transform: 'rotate(-28deg)' }),
     animate('1s ease-out')
   ])
 ]);
 
 export const bg2Animation = trigger('bg2', [
   transition('* => *', [
-    style({ opacity: 0, transform: 'rotate(-25deg)' }),
+    style({ opacity: 0, transform: 'rotate(-28deg)' }),
     animate('1s 200ms ease-out')
   ])
 ]);
 
 export const bg3Animation = trigger('bg3', [
   transition('* => *', [
-    style({ opacity: 0, transform: 'rotate(-4deg)' }),
+    style({ opacity: 0, transform: 'rotate(0deg)' }),
     animate('1s 400ms ease-out')
   ])
 ]);
@@ -81,8 +81,8 @@ const routerAnimationSlideRightGroup = group([
 export const routerAnimation = trigger('router', [
   transition('welcome => *', [ routerAnimationDiveGroup ]),
   transition('* => welcome', [ routerAnimationRiseGroup ]),
-  transition('* => forgot', [ routerAnimationSlideLeftGroup ]),
-  transition('forgot => *', [ routerAnimationSlideRightGroup ])
+  transition('* => forgot', [ routerAnimationSlideRightGroup ]),
+  transition('forgot => *', [ routerAnimationSlideLeftGroup ])
 ]);
 
 export const animations = [

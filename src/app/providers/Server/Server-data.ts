@@ -8,3 +8,7 @@ export interface SignupData {
   email: string;
   password: string;
 }
+
+export interface ForgotData {
+  email: string;
+}

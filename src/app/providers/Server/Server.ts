@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
-import { SigninData, SignupData } from './Server-data';
+import { ForgotData, SigninData, SignupData } from './Server-data';
 
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/delay';
@@ -23,6 +23,12 @@ export class Server {
   signin(data: SigninData): Observable<boolean> {
     return Observable.of(true)
       .delay(FAKE_DELAY);
+      // .mergeMap(() => Observable.throw(new Error('error')));
+  }
+
+  forgot(data: ForgotData): Observable<boolean> {
+    return Observable.of(true)
+      .delay(FAKE_DELAY)
       // .mergeMap(() => Observable.throw(new Error('error')));
   }
 

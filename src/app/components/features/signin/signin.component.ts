@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 
 import { MaterialDirtyStateMatcher } from '../../../helpers/MaterialDirtyStateMatcher';
 import { Server } from '../../../providers/Server/Server';
+import { IServerComponent } from '../../../helpers/IServerComponent';
 import { SigninData } from '../../../providers/Server/Server-data';
 
 @Component({
@@ -14,13 +15,13 @@ import { SigninData } from '../../../providers/Server/Server-data';
     './signin.component.scss'
   ]
 })
-export class SigninComponent implements OnInit {
+export class SigninComponent implements OnInit, IServerComponent {
 
   emailControl: FormControl;
   form: FormGroup;
   matcher = new MaterialDirtyStateMatcher;
   passwordControl: FormControl;
-  serverObservable: Observable<boolean>;
+  serverObservable: Observable<any>;
 
   constructor(private _server: Server, private _router: Router) { }
 
@@ -37,17 +38,19 @@ export class SigninComponent implements OnInit {
       };
       this.serverObservable = this._server.signin(data);
       this.serverObservable
-        .subscribe(() => setTimeout(() => this._router.navigate(['']), 500));
+        .subscribe(
+          () => setTimeout(() => this._router.navigate(['']), 500),
+          () => this.serverObservable = null,
+          () => this.serverObservable = null
+        );
     }
   }
 
   private _initForm() {
-    this.form = new FormGroup(
-      {
-        email: this.emailControl,
-        password: this.passwordControl
-      },
-    );
+    this.form = new FormGroup({
+      email: this.emailControl,
+      password: this.passwordControl
+    });
   }
 
   private _initFormControls() {

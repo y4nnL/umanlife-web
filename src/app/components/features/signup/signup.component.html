@@ -75,7 +75,7 @@
         <uw-button type="submit"
                    successIcon="mail"
                    successColor="#ff296f"
-                   [disabled]="form.invalid || serverObservable"
+                   [disabled]="form.invalid || serverObservable || email"
                    [observable]="serverObservable"
                    (action)="signup()">{{'COMMON_SIGNUP'|translate}}</uw-button>
       </div>

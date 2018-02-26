@@ -26,7 +26,8 @@
       <div fxLayout="column"
            fxLayoutAlign="start center">
         <uw-button class="signin-forget"
-                   inline="inline">{{'SIGNIN_FORGOT'|translate}}</uw-button>
+                   inline="inline"
+                   [routerLink]="['', 'forgot']">{{'COMMON_FORGOT'|translate}}</uw-button>
         <uw-button type="submit"
                    [disabled]="form.invalid || serverObservable"
                    [observable]="serverObservable"

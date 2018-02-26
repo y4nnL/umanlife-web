@@ -1,8 +1,13 @@
 {
 	"COMMON_BASELINE": "Prenez votre vie en main",
+  "COMMON_FORGOT": "Mot de passe oublié",
+	"COMMON_PENDING_REQUEST": "Une requête est en cours, veuillez patienter",
 	"COMMON_SIGNIN": "Connexion",
 	"COMMON_SIGNUP": "Inscription",
 	"COMMON_TOS": "Conditions du service",
+  "FORGOT_SIGNIN": "Retour à la connexion",
+  "FORGOT_SUCCESS_TEXT": "Nous venons de vous envoyer un email contenant un lien pour modifier votre mot de passe.",
+  "FORGOT_SUCCESS_LINK": "Aller sur {{link}}",
   "FORM_EMAIL": "Email",
   "FORM_EMAIL_ERROR_EMAIL": "Cet email n'est pas <strong>valide</strong>",
   "FORM_EMAIL_ERROR_REQUIRED": "L'email est <strong>obligatoire</strong>",

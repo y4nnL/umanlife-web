@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 
 import { MaterialDirtyStateMatcher } from '../../../helpers/MaterialDirtyStateMatcher';
 import { Server } from '../../../providers/Server/Server';
+import { IServerComponent } from '../../../helpers/IServerComponent';
 import { SignupData } from '../../../providers/Server/Server-data';
 
 import { animations } from './signup-animation';
@@ -16,7 +17,7 @@ import { animations } from './signup-animation';
   ],
   animations: animations
 })
-export class SignupComponent implements OnInit {
+export class SignupComponent implements OnInit, IServerComponent {
 
   email = '';
   emailControl: FormControl;
@@ -59,6 +60,7 @@ export class SignupComponent implements OnInit {
       this.serverObservable
         .subscribe(
           () => this.email = this.form.value.email,
+          () => this.serverObservable = null,
           () => this.serverObservable = null
         );
     }
@@ -71,19 +73,16 @@ export class SignupComponent implements OnInit {
   }
 
   private _initForm() {
-    this.form = new FormGroup(
-      {
-        username: this.usernameControl,
-        email: this.emailControl,
-        password: this.passwordControl,
-        passwordMatch: this.passwordMatchControl
-      },
-      {
-        validators: [
-          this._passwordMatch
-        ]
-      }
-    );
+    this.form = new FormGroup({
+      username: this.usernameControl,
+      email: this.emailControl,
+      password: this.passwordControl,
+      passwordMatch: this.passwordMatchControl
+    }, {
+      validators: [
+        this._passwordMatch
+      ]
+    });
   }
 
   private _initFormControls() {

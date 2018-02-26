@@ -11,6 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -19,12 +20,14 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { WelcomeComponent } from './components/features/welcome/welcome.component';
 import { ButtonComponent } from './components/shared/button/button.component';
+import { ForgotComponent } from './components/features/forgot/forgot.component';
 import { SigninComponent } from './components/features/signin/signin.component';
 import { SignupComponent } from './components/features/signup/signup.component';
 import { HeaderComponent } from './components/shared/header/header.component';
 import { ContainerSimpleComponent } from './components/shared/container/container-simple/container-simple.component';
 
 import { ServerModule } from './providers/Server/Server.module';
+import { CanDeactivateServerComponent } from './helpers/CanDeactivateServerComponent';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,8 @@ import { ServerModule } from './providers/Server/Server.module';
     SignupComponent,
     HeaderComponent,
     ContainerSimpleComponent,
-    SigninComponent
+    SigninComponent,
+    ForgotComponent
   ],
   imports: [
     BrowserModule,
@@ -50,8 +54,12 @@ import { ServerModule } from './providers/Server/Server.module';
     MatIconModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSnackBarModule,
     AppRoutingModule,
     ServerModule
+  ],
+  providers: [
+    CanDeactivateServerComponent
   ],
   bootstrap: [
     AppComponent

@@ -1,8 +1,13 @@
 {
 	"COMMON_BASELINE": "Manage your life",
+  "COMMON_FORGOT": "Forgot my password",
+  "COMMON_PENDING_REQUEST": "A request is pending, please wait",
 	"COMMON_SIGNIN": "Sign in",
 	"COMMON_SIGNUP": "Sign up",
   "COMMON_TOS": "Terms of uses",
+  "FORGOT_SIGNIN": "Back to sign in",
+  "FORGOT_SUCCESS_TEXT": "We have just sent you and email with the instructions to change your password.",
+  "FORGOT_SUCCESS_LINK": "Go to {{link}}",
   "FORM_EMAIL": "Email",
   "FORM_EMAIL_ERROR_EMAIL": "This email is not <strong>valid</strong>",
   "FORM_EMAIL_ERROR_REQUIRED": "The email is <strong>required</strong>",
@@ -16,8 +21,8 @@
   "FORM_USERNAME": "Username",
   "FORM_USERNAME_ERROR_REQUIRED": "The username is <strong>required</strong>",
   "SIGNIN_FORGOT": "Forgot my password",
-  "SIGNUP_SUCCESS_TITLE": "Bienvenue {{username}} !",
-  "SIGNUP_SUCCESS_TEXT": "Nous venons de vous envoyer un email contenant un lien pour finaliser votre inscription.",
-  "SIGNUP_SUCCESS_LINK": "Aller sur {{link}}",
+  "SIGNUP_SUCCESS_TITLE": "Welcome {{username}} !",
+  "SIGNUP_SUCCESS_TEXT": "We have just sent you and email with the instructions to finalize your account.",
+  "SIGNUP_SUCCESS_LINK": "Go to {{link}}",
 	"WELCOME_SIGNIN": "I already have an account"
 }

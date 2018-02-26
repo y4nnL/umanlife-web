@@ -1,0 +1,47 @@
+<uw-container-simple [title]="'COMMON_FORGOT'|translate">
+  <div class="forgot">
+    <form [formGroup]="form"
+          novalidate>
+      <div class="forgot-form"
+           fxLayout="column"
+           *ngIf="!email"
+           @collapse>
+        <mat-form-field class="green-theme">
+          <input type="email"
+                 [placeholder]="'FORM_EMAIL'|translate"
+                 [formControl]="emailControl"
+                 [errorStateMatcher]="matcher"
+                 formControlName="email"
+                 matInput>
+          <mat-error *ngIf="emailControl.hasError('required')"
+                     [innerHTML]="'FORM_EMAIL_ERROR_REQUIRED'|translate"></mat-error>
+        </mat-form-field>
+        <div fxLayout="column"
+             fxLayoutAlign="start center">
+          <uw-button class="forgot-signin"
+                     inline="inline"
+                     routerLink="/signin">{{'FORGOT_SIGNIN'|translate}}</uw-button>
+        </div>
+      </div>
+      <div fxLayout="column"
+           fxLayoutAlign="start center">
+        <uw-button type="submit"
+                   successIcon="mail"
+                   successColor="#ff296f"
+                   [disabled]="form.invalid || serverObservable || email"
+                   [observable]="serverObservable"
+                   (action)="forgot()">{{'COMMON_FORGOT'|translate}}</uw-button>
+      </div>
+      <div class="forgot-success"
+           fxLayout="column"
+           fxLayoutAlign="start center"
+           *ngIf="email"
+           @success>
+        <span>{{'FORGOT_SUCCESS_TEXT'|translate}}</span>
+        <uw-button class="forgot-success-link"
+                   inline="inline"
+                   (click)="goToMail()">{{('FORGOT_SUCCESS_LINK'|translate: { link: getEmailHostname() })}}</uw-button>
+      </div>
+    </form>
+  </div>
+</uw-container-simple>
