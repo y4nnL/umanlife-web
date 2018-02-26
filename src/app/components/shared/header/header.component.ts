@@ -20,7 +20,7 @@ import 'rxjs/add/operator/mergeMap';
 export class HeaderComponent implements OnInit {
 
   displayed = false;
-  back: boolean|string = false;
+  back: boolean|string[] = false;
 
   constructor(
     private _location: Location,
@@ -54,8 +54,8 @@ export class HeaderComponent implements OnInit {
   }
 
   goBack() {
-    if (typeof this.back === 'string') {
-      this._router.navigate([ this.back ]);
+    if (Array.isArray(this.back)) {
+      this._router.navigate(this.back);
     } else if (this.back === true) {
       this._location.back();
     }
