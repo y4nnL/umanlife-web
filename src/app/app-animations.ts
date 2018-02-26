@@ -34,31 +34,55 @@ export const spinnerAnimation = trigger('spinner', [
   ])
 ]);
 
-const routerInGroup = group([
-  query(':leave', [
-    style({ zIndex: 1 }),
+const routerAnimationDiveGroup = group([
+  query('.app-content :leave', [
+    style({ zIndex: 1, transform: 'scale(1)', opacity: 1 }),
     animate('200ms ease-out', style({ transform: 'scale(1.08)', opacity: 0 }))
   ], { optional: true }),
-  query(':enter', [
+  query('.app-content :enter', [
     style({ zIndex: 2, transform: 'scale(0.92)', opacity: 0 }),
-    animate('200ms 100ms ease-in')
+    animate('200ms 100ms ease-in', style({ transform: 'scale(1)', opacity: 1 }))
   ], { optional: true }),
 ]);
 
-const routerOutGroup = group([
-  query(':leave', [
-    style({ zIndex: 2 }),
+const routerAnimationRiseGroup = group([
+  query('.app-content :leave', [
+    style({ zIndex: 2, transform: 'scale(1)', opacity: 1 }),
     animate('200ms ease-in', style({ transform: 'scale(0.92)', opacity: 0 }))
   ], { optional: true }),
-  query(':enter', [
+  query('.app-content :enter', [
     style({ zIndex: 1, transform: 'scale(1.08)', opacity: 0 }),
-    animate('200ms 100ms ease-out')
+    animate('200ms 100ms ease-out', style({ transform: 'scale(1)', opacity: 1 }))
+  ], { optional: true })
+]);
+
+const routerAnimationSlideLeftGroup = group([
+  query('.app-content :leave', [
+    style({ zIndex: 2, left: 0, opacity: 1 }),
+    animate('200ms ease-in', style({ left: 200, opacity: 0 }))
+  ], { optional: true }),
+  query('.app-content :enter', [
+    style({ zIndex: 1, left: -200, opacity: 0 }),
+    animate('200ms 100ms ease-out', style({ left: 0, opacity: 1 }))
+  ], { optional: true })
+]);
+
+const routerAnimationSlideRightGroup = group([
+  query('.app-content :leave', [
+    style({ zIndex: 2, left: 0, opacity: 1 }),
+    animate('200ms ease-in', style({ left: -200, opacity: 0 }))
+  ], { optional: true }),
+  query('.app-content :enter', [
+    style({ zIndex: 1, left: 200, opacity: 0 }),
+    animate('200ms 100ms ease-out', style({ left: 0, opacity: 1 }))
   ], { optional: true })
 ]);
 
 export const routerAnimation = trigger('router', [
-  transition('welcome => *', [ routerInGroup ]),
-  transition('* => welcome', [ routerOutGroup ])
+  transition('welcome => *', [ routerAnimationDiveGroup ]),
+  transition('* => welcome', [ routerAnimationRiseGroup ]),
+  transition('* => forgot', [ routerAnimationSlideLeftGroup ]),
+  transition('forgot => *', [ routerAnimationSlideRightGroup ])
 ]);
 
 export const animations = [

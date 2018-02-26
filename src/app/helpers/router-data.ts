@@ -4,3 +4,7 @@ export interface RouterDataHeader {
     back?: boolean|string;
   };
 }
+
+export interface RouterDataState {
+  state: string;
+}

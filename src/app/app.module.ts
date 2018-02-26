@@ -19,12 +19,12 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { WelcomeComponent } from './components/features/welcome/welcome.component';
 import { ButtonComponent } from './components/shared/button/button.component';
+import { SigninComponent } from './components/features/signin/signin.component';
 import { SignupComponent } from './components/features/signup/signup.component';
 import { HeaderComponent } from './components/shared/header/header.component';
 import { ContainerSimpleComponent } from './components/shared/container/container-simple/container-simple.component';
 
 import { ServerModule } from './providers/Server/Server.module';
-import { SigninComponent } from './components/features/signin/signin.component';
 
 @NgModule({
   declarations: [

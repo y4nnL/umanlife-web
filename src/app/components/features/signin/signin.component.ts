@@ -4,21 +4,8 @@ import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
 
 import { MaterialDirtyStateMatcher } from '../../../helpers/MaterialDirtyStateMatcher';
-import { Server, SigninData } from '../../../providers/Server/Server';
-
-import { RouterDataState } from '../../../helpers/routerData/RouterDataState';
-import { RouterDataHeader } from '../../../helpers/routerData/RouterDataHeader';
-
-export const signinRouterDataHeader: RouterDataHeader = {
-  header: {
-    display: true,
-    back: true
-  }
-};
-
-export const signinRouterDataState: RouterDataState = {
-  state: 'signin'
-};
+import { Server } from '../../../providers/Server/Server';
+import { SigninData } from '../../../providers/Server/Server-data';
 
 @Component({
   selector: 'uw-signin',

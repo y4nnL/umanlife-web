@@ -1,20 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {
-  WelcomeComponent,
-  welcomeRouterDataHeader,
-  welcomeRouterDataState
-} from './components/features/welcome/welcome.component';
-import {
-  SignupComponent,
-  signupRouterDataHeader,
-  signupRouterDataState
-} from './components/features/signup/signup.component';
-import {
-  SigninComponent,
-  signinRouterDataHeader,
-  signinRouterDataState
-} from './components/features/signin/signin.component';
+
+import { WelcomeComponent } from './components/features/welcome/welcome.component';
+import { welcomeRouterDataHeader, welcomeRouterDataState } from './components/features/welcome/welcome-data';
+import { SignupComponent } from './components/features/signup/signup.component';
+import { signupRouterDataHeader, signupRouterDataState } from './components/features/signup/signup-data';
+import { SigninComponent } from './components/features/signin/signin.component';
+import { signinRouterDataHeader, signinRouterDataState } from './components/features/signin/signin-data';
 
 const routes: Routes = [
   {

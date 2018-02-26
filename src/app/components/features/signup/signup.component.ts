@@ -3,22 +3,10 @@ import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/fo
 import { Observable } from 'rxjs/Observable';
 
 import { MaterialDirtyStateMatcher } from '../../../helpers/MaterialDirtyStateMatcher';
-import { Server, SignupData } from '../../../providers/Server/Server';
+import { Server } from '../../../providers/Server/Server';
+import { SignupData } from '../../../providers/Server/Server-data';
 
 import { animations } from './signup-animation';
-import { RouterDataState } from '../../../helpers/routerData/RouterDataState';
-import { RouterDataHeader } from '../../../helpers/routerData/RouterDataHeader';
-
-export const signupRouterDataHeader: RouterDataHeader = {
-  header: {
-    display: true,
-    back: true
-  }
-};
-
-export const signupRouterDataState: RouterDataState = {
-  state: 'signup'
-};
 
 @Component({
   selector: 'uw-signup',

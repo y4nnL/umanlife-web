@@ -3,7 +3,7 @@ import { Location } from '@angular/common';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 
 import { animations } from './header-animations';
-import { RouterDataHeader } from '../../../helpers/routerData/RouterDataHeader';
+import { RouterDataHeader } from '../../../helpers/router-data';
 
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/map';
