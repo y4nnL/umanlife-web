@@ -28,8 +28,13 @@ import { HeaderComponent } from './components/shared/header/header.component';
 import { ContainerSimpleComponent } from './components/shared/container/container-simple/container-simple.component';
 
 import { ServerModule } from './providers/Server/Server.module';
+import { AuthModule } from './providers/Auth/Auth.module';
 import { CanDeactivateServerComponent } from './providers/Server/Server-guard';
 import { CanActivatePasswordToken } from './components/features/password/password-guard';
+import { ConfiguratorComponent } from './components/features/configurator/configurator.component';
+import { CanActivateSecured } from './providers/Auth/Auth-guard';
+import { CanActivateUnsecured } from './providers/Auth/Auth-guard';
+import { ProgramComponent } from './components/features/program/program.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +46,9 @@ import { CanActivatePasswordToken } from './components/features/password/passwor
     ContainerSimpleComponent,
     SigninComponent,
     ForgotComponent,
-    PasswordComponent
+    PasswordComponent,
+    ConfiguratorComponent,
+    ProgramComponent
   ],
   imports: [
     BrowserModule,
@@ -59,11 +66,14 @@ import { CanActivatePasswordToken } from './components/features/password/passwor
     MatInputModule,
     MatSnackBarModule,
     AppRoutingModule,
-    ServerModule
+    ServerModule,
+    AuthModule
   ],
   providers: [
     CanDeactivateServerComponent,
-    CanActivatePasswordToken
+    CanActivatePasswordToken,
+    CanActivateSecured,
+    CanActivateUnsecured
   ],
   bootstrap: [
     AppComponent

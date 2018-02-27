@@ -5,6 +5,7 @@
 	"COMMON_SIGNIN": "Sign in",
 	"COMMON_SIGNUP": "Sign up",
   "COMMON_TOS": "Terms of uses",
+  "ERROR_TECHNICAL": "A technical error has occured, please try again",
   "FORGOT_INTRO": "Please give us your email so we can sand you an invitation to change your password",
   "FORGOT_SIGNIN": "Back to sign in",
   "FORGOT_SUCCESS_TEXT": "We have just sent you and email with the instructions to change your password.",

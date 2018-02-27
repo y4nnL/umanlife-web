@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute, NavigationEnd, ActivatedRouteSnapshot } from '@angular/router';
 
+import { Auth } from '../../../providers/Auth/Auth';
+
 import { animations } from './header-animations';
 import { RouterDataHeader, RouterDataHeaderBack } from '../../../helpers/router-data';
 
@@ -20,18 +22,42 @@ import 'rxjs/add/operator/do';
 })
 export class HeaderComponent implements OnInit {
 
-  displayed = false;
   back: boolean|string[]|RouterDataHeaderBack = false;
+  displayed = false;
+  extended = false;
 
   private previousRouteSnapshot: ActivatedRouteSnapshot;
 
   constructor(
     private _location: Location,
     private _router: Router,
-    private _activatedRoute: ActivatedRoute
+    private _activatedRoute: ActivatedRoute,
+    private _auth: Auth
   ) { }
 
   ngOnInit() {
+    this._initHeaderDataRx();
+    this._initAuthenticatedRx();
+  }
+
+  canGoBack(): boolean {
+    return typeof this.back === 'string' || this.back === true;
+  }
+
+  goBack() {
+    if (Array.isArray(this.back)) {
+      this._router.navigate(this.back);
+    } else if (!!this.back) {
+      this._location.back();
+    }
+  }
+
+  private _initAuthenticatedRx() {
+    this._auth.isAuthenticated()
+      .subscribe((isAuthenticated) => this.extended = isAuthenticated);
+  }
+
+  private _initHeaderDataRx() {
     let activatedRouteSnapshot: ActivatedRouteSnapshot;
     this._router.events
       .filter((event) => event instanceof NavigationEnd)
@@ -56,18 +82,6 @@ export class HeaderComponent implements OnInit {
           this.previousRouteSnapshot = activatedRouteSnapshot;
         }
       });
-  }
-
-  canGoBack(): boolean {
-    return typeof this.back === 'string' || this.back === true;
-  }
-
-  goBack() {
-    if (Array.isArray(this.back)) {
-      this._router.navigate(this.back);
-    } else if (!!this.back) {
-      this._location.back();
-    }
   }
 
 }
